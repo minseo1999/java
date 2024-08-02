@@ -1,0 +1,30 @@
+package test2222;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class tcps {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int port = 3000;
+		
+		ServerSocket ss;
+		
+		try {
+			ss = new ServerSocket(port);
+			
+			while(true) {
+				Socket cli = ss.accept();
+				System.out.println("연결준비");
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

@@ -1,0 +1,48 @@
+package test240729.object2;
+
+import java.util.HashSet;
+import java.util.TreeSet;
+
+public class LotteryController {
+	private HashSet lottery = new HashSet();
+	private HashSet win = new HashSet();
+	
+	public boolean insertObject(Lottery l) {
+		return lottery.add(l); //정상적으로 들어가면 true 아니면 false 
+	}
+	
+	public boolean  deleteObject(Lottery l) {
+		return lottery.remove(l);
+	}
+	
+	public HashSet winObject() {
+		return null;
+	}
+	
+	public TreeSet sortedWinObject() {
+		return null;
+	}
+	
+	public boolean searchWinner(Lottery l) {
+		return true;
+	}
+
+	public HashSet getLottery() {
+		return lottery;
+	}
+
+	public void setLottery(HashSet lottery) {
+		this.lottery = lottery;
+	}
+
+	public HashSet getWin() {
+		return win;
+	}
+
+	public void setWin(HashSet win) {
+		this.win = win;
+	}
+	
+	
+	
+}

@@ -1,0 +1,10 @@
+package test240729.object1;
+
+import java.util.ArrayList;
+
+public class MusicController {
+	
+	private List list = new ArrayList();
+
+	
+}

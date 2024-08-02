@@ -1,0 +1,42 @@
+package test240731.object1;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class FarmController {
+	HashMap<Farm,Integer> hMap = new HashMap<Farm,Integer>();
+	
+	ArrayList<Farm> list = new ArrayList<Farm>();
+	
+	public boolean addNewKind(Farm f, int amount) {
+		if(hMap.containsKey(f)) {//Farm equals 오버라이딩 해줘야 겹치는지 아닌지 구별 가능
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean removeKind(Farm f) {
+		return true;
+	}
+	
+	public boolean changeAmount(Farm f,int amount) {
+		return true;
+	}
+	
+	public HashMap<Farm, Integer>  printFarm() {
+		return null;
+	}
+	
+	public boolean buyFarm(Farm f) {
+		return true;
+	}
+	
+	public boolean removeFarm(Farm f) {
+		return true;
+	}
+	
+	public ArrayList<Farm>  printBuyFarm() {
+		return null;
+	}
+
+}

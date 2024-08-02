@@ -1,0 +1,10 @@
+package test240729.object2;
+
+import java.util.HashSet;
+
+public class LotteryController {
+	private HashSet lottery = new HashSet();
+	private HashSet win = new HashSet();
+	
+
+}

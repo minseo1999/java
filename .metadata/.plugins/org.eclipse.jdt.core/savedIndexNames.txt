@@ -1,0 +1,9 @@
+INDEX VERSION 1.134+C:\Users\user1\Desktop\tlqkf\.metadata\.plugins\org.eclipse.jdt.core
+3109147059.index
+418816365.index
+2030181237.index
+3134411186.index
+2933981317.index
+2868695985.index
+1865797976.index
+4010092791.index

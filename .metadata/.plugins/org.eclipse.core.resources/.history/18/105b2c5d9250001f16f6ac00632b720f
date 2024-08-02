@@ -1,0 +1,26 @@
+package test2222;
+
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class tcpc {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int port = 3000;
+		
+		String si;
+		
+		try {
+			si = InetAddress.getLocalHost().getHostAddress();
+			Socket sc = new Socket(si,port);
+	
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

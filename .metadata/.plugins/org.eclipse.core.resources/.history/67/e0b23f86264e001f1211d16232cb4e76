@@ -1,0 +1,51 @@
+package p.network;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class Run {
+	/*
+	 * 네트워크 : 여러대의 컴퓨터들이 연결되어있는 통신망
+	 * 		  => 네트워크를 통해서 서로 데이터를 교환하기 위함
+	 * IP주소 : 네트워크상에 각 컴퓨터들을 식별해줄 수 있는 번호 (실제 주소와 동일한 역할)
+	 * 
+	 * 서버와 클라이언트
+	 * 
+	 * 서버 : 클라이언트(고객) 에게 서비스를 제공해주는 프로그램 또는 컴퓨터 (요청에 대해서 응답해주는것)
+	 * 클라이언트 : 서버에 요청을 하는 컴퓨터 (서비스를 제공받는 고객)
+	 * 
+	 * 서버에 요청하기 위한 필요 조건
+	 * 요청하고자 하는 서버의 IP 주소 혹은 도메인 주소, 포트번호
+	 *
+	 * 현재 구동중인 서버가 있을 때
+	 * 클라이언트는 그 서버로 요청을 보낼 수 있음 -> 응답결과가 돌아옴
+	 * 
+	 * 요청과 응답에 의해 웹은 작동한다. ("통신한다")
+	 * HTTP 프로토콜 사용함
+	 * 
+	 * 자바만 가지고 통신을 하려면 자바와 서버간에 스트림(통로) 가 필요하다
+	 * 
+	 * 소켓 프로그래밍 (TCP/UDP)
+	 * 
+	 * 
+	 * InetAdderss : 네트워크 정보 (ip주소 관련)를 확인할 수 있는 클래스
+	 */
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			InetAddress localhost = InetAddress.getLocalHost(); //내 pc 에 대한 정보 반환
+			System.out.println(localhost); // 내 pc 명 + 내 ip 주소
+			
+			
+			System.out.println("=========================================");
+			InetAddress[] naverhost = InetAddress.getAllByName("www.naver.com");
+			System.out.println("length : " + naverhost.length);
+			
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

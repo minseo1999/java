@@ -1,0 +1,57 @@
+package test2222;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Food {
+	String name;
+	int kcal;
+	
+	public Food(String name, int kcal) {
+		super();
+		this.name = name;
+		this.kcal = kcal;
+	}
+
+	public Food() {
+		super();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getKcal() {
+		return kcal;
+	}
+
+	public void setKcal(int kcal) {
+		this.kcal = kcal;
+	}
+
+	@Override
+	public String toString() {
+		return "Food [name=" + name + ", kcal=" + kcal + "]";
+	}
+	
+	public void fileSave(String fileName) {
+		File f = new File(fileName);
+		
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))){
+			bw.write("\"사과\",20");
+			bw.flush();
+			bw.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
