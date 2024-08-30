@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소접근</title>
+    <style>
+        .area{
+            border: 1px solid black;
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>요소에 접근하기(해당 요소객체 가져오기)</h1>
+    
+    <h3>1) 아이디를 이용해서 요소 가져오기</h3>
+    <div class="area" id="area1">area1영역</div>
+    <button onclick="accessId()">아이디로 접근</button>
+
+    <script>
+        //아이디로 요소 가져올때
+        //document.getElementById("아이디명")
+
+        //이벤트 핸들러 함수
+        function accessId(){
+            let area1 = document.getElementById("area1");
+            
+            area1.style.background = "yellow";
+            area1.style.color = "red";
+            area1.style.width = "200px";
+            area1.style.height = "100px"
+
+            area1.innerText = "클릭된 영역";
+        }
+    </script>
+
+    <div class="area" id="area2">
+        area2영역
+    </div>
+
+    <button onclick="changeColor()">색상변경</button>
+
+    <script>
+        function changeColor(){
+            let area2 = document.getElementById("area2");
+
+            if(area2.style.background !== "yellow"){
+                area2.style.background = "yellow";
+            }else{
+                area2.style.background = "red"
+            }
+        }
+    </script>
+
+    <h3>2) 태그명으로 요소 가져오기</h3>
+
+    <ul>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+    </ul>
+
+    <button onclick="accessTagName()">태그 검색</button>
+
+    <script>
+        function accessTagName(){
+            //태그명으로 가져오기
+            //document.getElementsByTagName("태그명") -> 선택된 요소객체들을 배열로 반환
+            
+            let list = document.getElementsByTagName("li");
+
+            console.log(list);
+            console.log(list.length); //배열 길이
+            console.log(list[0].innerHTML); //배열 첫번째요소
+            console.log(list[0].innerText); //배열 첫번째내용
+
+            for(let i=0; i<list.length; i++){
+                list[i].innerHTML = (i+1)+"번째요소입니다."
+                list[i].style.color = "blue";
+            }       
+        }
+    </script>
+
+    <br>
+
+    <h3>3) name속성값으로 요소 가져오기</h3>
+
+    <form action="">
+        <fieldset>
+            <legend>취미</legend>
+            <input type="checkbox" name="hobby" id="all" onchange="allcheck()" value="전체선택">
+            <label for="">전체선택</label>
+            <input type="checkbox" name="hobby" id="game" onchange="checkBoxTrigger()" value="게임">
+            <label for="">게임</label>
+            <input type="checkbox" name="hobby" id="movie" onchange="checkBoxTrigger()" value="영화">
+            <label for="">영화</label>
+            <input type="checkbox" name="hobby" id="sports" onchange="checkBoxTrigger()" value="스포츠">
+            <label for="">스포츠</label>
+        </fieldset>
+    </form>
+
+    <div class="area" id="area3"></div>
+
+    <script>
+        function allcheck(){
+            //전체선택 버튼의 checked 속성값이 변경되면 다른 checkbox도 동일하게 변경
+
+            let allcheckBox = document.getElementById("all");
+            
+            //name으로 가져올때
+            let hobbyList = document.getElementsByName("hobby");
+
+            // for(let i=0; i<hobbylist.length; i++){
+            //      let checkBox = hobbyList[i]}
+            for(let checkBox of hobbyList){
+                checkBox.checked = allcheckBox.checked;
+            }
+
+            checkHobby();
+        } 
+
+        function checkBoxTrigger(){
+            let allcheck = true;
+
+            let hobbyList = document.getElementsByName("hobby");
+            for(let checkBox of hobbyList){
+                if(checkBox.id === "all"){
+                    continue;
+                }
+
+                if(!checkBox.checked){
+                    allcheck = false;
+                }
+            }
+            let adllcheckbox = document.getElementById("all");
+            allcheck.checked = allcheck;
+
+            checkHobby();
+        }
+
+        function checkHobby(){
+            let hobbyList = document.getElementsByName("hobby");
+            let value = "";
+            for(let checkBox of hobbyList){
+                if(checkBox.id === "all"){
+                continue;
+                }
+
+                if(checkBox.checked){
+                    value += checkBox.value + " ";
+                }
+            }
+            
+            document.getElementById("area3").innerText = value;
+        }
+    </script>
+
+    <h3>4) class로 접근</h3>
+    <div class="test"></div>
+    <p class="test"></p>
+    <ul class="test">
+        <li></li>
+        <li></li>
+    </ul>
+    <pre class="test"></pre>
+    <button onclick="accessClass()">class로</button>
+
+    <script>
+        function accessClass(){
+            //class속성으로 접근
+            // document.getElementsByClassName("클래스속성명") -> 배열로 반환
+            let classArr = document.getElementsByClassName("test");
+            console.log(classArr);
+
+            for(let unit of classArr){
+                unit.innerHTML = "text를 클래스로 가지고 있는 요소";
+            }
+        }
+    </script>
+
+    <h3>5) 내가 원하는 요소 자유자재로 가져오기</h3>
+    <div id="tmp1">test</div>
+    <div id="tmp2">
+        <h2>Hello</h2>
+        <h2>World</h2>
+    </div>
+    <span>???dlrpakwsi</span>
+    <h2>akwdk?</h2>
+
+    <br>
+
+    <button onclick="accessSelector()">click</button>
+    <script>
+        function accessSelector(){
+            //선택자로 접근
+            // document.querySelector("선택자") -> 선택한 요소 하나만 반환
+            // document.querySelectorAll("선택자") -> 선택한 요소 전부 반환
+
+            const divT1 = document.querySelector("#tmp1");
+            const h2E1 = document.querySelectorAll("#tmp2 > h2");
+            const spanE1 = document.querySelector("#tmp2 + span")
+
+            console.log(divT1);
+            console.log(h2E1);
+            console.log(spanE1);
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

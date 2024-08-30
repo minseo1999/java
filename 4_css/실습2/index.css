@@ -1,0 +1,41 @@
+#wrap{
+    width: 1000px;
+    height: 800px;
+    background-color: black;
+    box-sizing: border-box;
+}
+
+img{
+    display: block;
+}
+
+#sidebar{
+    width: 10%;
+    height: 100%;
+    background-color: aquamarine;
+}
+
+#sidebar1{
+    height: 10%;
+    height: 100%;
+}
+
+#sidebar2{
+    height: 10%;
+    height: 100%;
+}
+
+#sidebar3{
+    height: 10%;
+    height: 100%;
+}
+
+#sidebar4{
+    height: 10%;
+    height: 100%;
+}
+
+#sidebar5{
+    height: 10%;
+    height: 100%;
+}
