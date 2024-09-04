@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid black;
+            background-color: black;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h3>1. 색상, 선택후 변경을 클릭하면 색상이 변경</h3>
+    <div id="div1"></div>
+
+    <input type="color" id="selectColor">
+    <button onclick="colorChange()">change</button>
+
+    <script>
+        function colorChange(){
+            const chcolor = document.querySelector("#selectColor");
+            console.log(chcolor.value);
+
+            const divEl = document.getElementById("div1");
+            divEl.style.backgroundColor = chcolor.value;
+        }
+    </script>
+
+    <h3>2. 버튼에 따른 크기조절이 가능하게 만들기</h3>
+    <div id="div2"></div>
+    <button onclick="reSize('#div2','50px','50px')">50X50</button>
+    <button onclick="reSize('#div2','100px','100px')" id="100">100X100</button>
+    <button onclick="reSize('#div2','200px','200px')" id="200">200X200</button>
+
+    <script>
+        function reSize(selector, width, height){
+            const divEl = document.querySelector(selector)
+            divEl.style.width = width;
+            divEl.style.height = height;
+        }
+    </script>
+
+
+</body>
+</html>

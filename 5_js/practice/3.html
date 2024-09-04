@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            width: 700px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>실습문제 1</h1>
+
+    <fieldset>
+        <legend>취미</legend>
+        <input type="checkbox" name="hobby" id="all" value="전체선택" onclick="allcheck()">
+        <label for="">전체선택</label>
+        <input type="checkbox" name="hobby" id="whdgkq" value="종합" onchange="checkBoxTrigger()">
+        <label for="">종합</label>
+        <input type="checkbox" name="hobby" id="thtjf" value="소설" onchange="checkBoxTrigger()">
+        <label for="">소설</label>
+        <input type="checkbox" name="hobby" id="tl" value="시/에세이" onchange="checkBoxTrigger()">
+        <label for="">시/에세이</label>
+        <input type="checkbox" name="hobby" id="rudwp" value="경제/경영" onchange="checkBoxTrigger()">
+        <label for="">경제/경영</label>
+        <input type="checkbox" name="hobby" id="wkrl" value="자기계발" onchange="checkBoxTrigger()">
+        <label for="">자기계발</label>
+        <input type="checkbox" name="hobby" id="dkehd" value="아동" onchange="checkBoxTrigger()">
+        <label for="">아동</label>
+        <br>
+        <input type="checkbox" name="hobby" id="dugod" value="여행" onchange="checkBoxTrigger()">
+        <label for="">여행</label>
+        <input type="checkbox" name="hobby" id="rhkgkr" value="과학" onchange="checkBoxTrigger()">
+        <label for="">과학</label>
+        <input type="checkbox" name="hobby" id="durtk" value="역사/문화" onchange="checkBoxTrigger()">
+        <label for="">역사/문화</label>
+        <input type="checkbox" name="hobby" id="dhlrnr" value="외국어" onchange="checkBoxTrigger()">
+        <label for="">외국어</label>
+        <input type="checkbox" name="hobby" id="zjavbxj" value="컴퓨터" onchange="checkBoxTrigger()">
+        <label for="">컴퓨터</label>
+        <input type="checkbox" name="hobby" id="aksghk" value="만화" onchange="checkBoxTrigger()">
+        <label for="">만화</label>
+    </fieldset>
+    <input type="submit" value="카테고리 선택" onclick="checkHobby()">
+
+
+    <div class="area" id="area3"></div>
+
+    <script>
+        function allcheck(){
+            //전체선택 버튼의 checked 속성값이 변경되면 다른 checkbox도 동일하게 변경
+
+            let allcheckBox = document.getElementById("all");
+            
+            //name으로 가져올때
+            let hobbyList = document.getElementsByName("hobby");
+
+            // for(let i=0; i<hobbylist.length; i++){
+            //      let checkBox = hobbyList[i]}
+            for(let checkBox of hobbyList){
+                checkBox.checked = allcheckBox.checked;
+            }
+        } 
+
+        function checkBoxTrigger(){
+            let allcheck = true;
+
+            let hobbyList = document.getElementsByName("hobby");
+            for(let checkBox of hobbyList){
+                if(checkBox.id === "all"){
+                    continue;
+                }
+
+                if(!checkBox.checked){
+                    allcheck = false;
+                }
+            }
+            let allcheckbox = document.getElementById("all");
+            allcheckbox.checked = allcheck;
+        }
+
+        function checkHobby(){
+            let hobbyList = document.getElementsByName("hobby");
+            let value = "";
+            for(let checkBox of hobbyList){
+                if(checkBox.id === "all"){
+                continue;
+                }
+
+                if(checkBox.checked){
+                    value += checkBox.value + "  ";
+                }
+            }
+            
+            document.getElementById("area3").innerText = value;
+        }
+    </script>
+</body>
+</html>

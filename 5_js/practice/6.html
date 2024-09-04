@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #text1{
+            width: 300px;
+            height: 100px;
+            border: 1px solid lightgray;
+            
+        }
+
+        #area{
+            width: 400px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>실습문제 4</h1>
+
+    <fieldset>
+        <legend>구매 정보</legend>
+        <ul>
+            <li>구매자 : <input type="text" placeholder="구매자의 이름을 입력하세요." id="cName"></li> 
+            <li>상품명 : <input type="text" placeholder="구매 상품명을 입력하세요." id="pName"></li>
+            <li>가격 : <input type="text" placeholder="구매 가격을 입력하세요." id="price"></li>
+            <li>구매 수량 : <input type="number" min="10" max="100" step="10" placeholder="최소 : 10" id="amount"></li>
+            <li>납품 등급 : <input type="range" min="1" max="9" step="2" id="gr"></li>
+            <li>기타 사항 : <input type="text" id="text1"></li>
+        </ul>
+    </fieldset>
+    <br>
+    
+    <input type="submit" value="입력 값 출력하기" onclick="print()">
+
+    <br><br>
+
+    <div id="area"></div>
+
+    <script>
+        function print(){
+            let cName = document.getElementById('cName');
+            let pName = document.getElementById('pName');
+            let price = document.getElementById('price')
+            let amount = document.getElementById('amount')
+            let gr = document.getElementById('gr')
+            let text1 = document.getElementById('text1')
+
+            const area = document.getElementById('area')
+
+            area.innerHTML = `구매자 명 : ${cName.value} <br>
+                              상품 명 : ${pName.value} <br>
+                              가격 : ${price.value} <br>
+                              구매 수량 : ${amount.value} <br>
+                              납품등급 : ${gr.value} <br>
+                              기타사항 : ${text1.value} <br>`
+        }
+    </script>
+</body>
+</html>

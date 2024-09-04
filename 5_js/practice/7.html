@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            margin-left: 40px;
+        }
+
+        fieldset{
+            width: 400px;
+        }
+
+        #input-box > div{
+            box-sizing: border-box;
+            margin-top: 20px;
+            background-color: beige;
+            width: 500px;
+            height: 70px;
+            display: none;
+        }
+    </style>
+
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js" 
+    integrity="sha256-Fb0zP4jE3JHqu+IBB9YktLcSjI1Zc6J2b6gTjB0LpoM=" 
+    crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <h1>실습문제 5</h1>
+
+    <fieldset style="text-align: center;" id="select">
+        <legend>검색할 항목을 선택하세요.</legend>
+        <input type="radio" id="title">제목
+        <input type="radio" id="day">날짜
+        <input type="radio" id="user">작성자
+    </fieldset>
+    
+    <div id="input-box">
+        <div id="title">
+            <p>검색할 제목을 입력하세요 :</p>
+            <input type="text">
+            <input type="submit" value="검색">
+        </div>
+        <div id="day">
+            <p>검색할 날짜를 입력하세요 :</p>
+            <input type="date">
+            <input type="submit" value="검색">
+        </div>
+        <div id="user">
+            <p>검색할 작성자 아이디를 입력하세요 :</p>
+            <input type="text">
+            <input type="submit" value="검색">
+        </div>
+    </div>
+    
+    <script>
+        $("#select > input").click(function(){
+            let $p = $(this);
+            console.log($p.
+        })
+    </script>
+</body>
+</html>
