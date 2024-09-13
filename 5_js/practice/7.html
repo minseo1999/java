@@ -10,7 +10,9 @@
         }
 
         fieldset{
-            width: 400px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
         }
 
         #input-box > div{
@@ -20,6 +22,11 @@
             width: 500px;
             height: 70px;
             display: none;
+        }
+
+        .box{
+            background-color: lightgray;
+            padding: 12px;
         }
     </style>
 
@@ -38,12 +45,18 @@
 
     <fieldset style="text-align: center;" id="select">
         <legend>검색할 항목을 선택하세요.</legend>
-        <input type="radio" id="title">제목
-        <input type="radio" id="day">날짜
-        <input type="radio" id="user">작성자
+        <label>
+            <input type="radio" id="title">제목
+        </label>
+        <label>
+            <input type="radio" id="day">날짜
+        </label>
+        <label>
+            <input type="radio" id="user">작성자
+        </label>
     </fieldset>
     
-    <div id="input-box">
+    <!-- <div id="input-box">
         <div id="title">
             <p>검색할 제목을 입력하세요 :</p>
             <input type="text">
@@ -59,13 +72,44 @@
             <input type="text">
             <input type="submit" value="검색">
         </div>
+    </div> -->
+
+    <div class="box" id="title">
+        <form action="">
+            <label for="">검색할 제목을 입력하세요 : </label>
+            <br>
+            <input type="text" name="title" size="50"> &nbsp;
+            <input type="submit" value="검색" onclick="return false">
+        </form>
+    </div>
+
+    <div class="box" id="date">
+        <form action="">
+            <label for="">검색할 날짜를 입력하세요 : </label>
+            <br>
+            <input type="date" name="start"> - <input type="date" name="end"> &nbsp;
+            <input type="submit" value="검색" onclick="return false">
+        </form>
+    </div>
+
+    <div class="box" id="">
+        <form action="">
+            <label for="">검색할 아이디를 입력하세요 : </label>
+            <br>
+            <input type="text" name="writer" size="50"> &nbsp;
+            <input type="submit" value="검색" onclick="return false">
+        </form>
     </div>
     
     <script>
-        $("#select > input").click(function(){
-            let $p = $(this);
-            console.log($p.
-        })
+        function showSearchBox(id){
+            let boxList = document.getElementsByClassName('box')
+            for(let box of boxList){
+                box.style.display = 'none'
+            }
+
+            document.getElementById(id).style.display = "block"
+        }
     </script>
 </body>
 </html>
