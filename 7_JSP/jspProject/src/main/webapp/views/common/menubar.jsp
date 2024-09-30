@@ -4,6 +4,8 @@
 	String contextPath = request.getContextPath();
 
 	Member loginUser = (Member)session.getAttribute("loginUser");
+	
+	String alertMsg = (String)session.getAttribute("alertMsg");
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -66,6 +68,12 @@
     </style>
 </head>
 <body>
+	<% if(alertMsg != null) {%>
+		<script>
+			alert("<%=alertMsg%>")
+		</script>
+		<% session.removeAttribute("alertMsg"); %>
+	<%} %>
     <h1 align="center">Welcome KH World</h1>
     <div class="login-area">
         <!--로그인 전-->
@@ -85,10 +93,19 @@
                 <tr>
                     <th colspan="2">
                         <input type="submit" value="로그인">
-                        <input type="button" value="회원가입">
+                        <input type="button" value="회원가입" onclick="enrollPage();">
                     </th>
                 </tr>
             </table>
+            <script>
+            	function enrollPage(){
+            		//location.href = "<%=contextPath%>/views/member/memberEnrollForm.jsp";
+            		//웹 애플리케이션의 디렉토리 구조가 url에 노출되면 보안에 취약
+            		
+            		location.href = "<%=contextPath%>/enrollForm.me";
+            		//단순한 페이지 요청도 서블릿을 거쳐갈 것(즉, url에는 서블릿 매핑값만 나타나도록)
+            	}
+            </script>
         </form>
         </c:when>
         <c:otherwise>
@@ -98,8 +115,8 @@
             <b><%=loginUser.getUserName() %></b>의 방문을 환영합니다. <br><br>
         </div>
         <div>
-            <a href="">마이페이지</a>
-            <a href="">로그아웃</a>
+            <a href="<%=contextPath %>/myPage.me">마이페이지</a>
+            <a href="<%=contextPath %>/logout.me">로그아웃</a>
         </div>
         <%--} --%>
         </c:otherwise>
@@ -108,10 +125,10 @@
 
     <br clear="both">
     <div class="nav-area">
-        <div class="menu"><a href="">HOME</a></div>
+        <div class="menu"><a href="<%=contextPath%>">HOME</a></div>
         <div class="menu"><a href="">공지사항</a></div>
-        <div class="menu"><a href="">일반게시판</a></div>
-        <div class="menu"><a href="">사진게시판</a></div>
+        <div class="menu"><a href="<%=contextPath%>/list.bo?cpage=1">일반게시판</a></div>
+        <div class="menu"><a href="<%=contextPath%>/list.th">사진게시판</a></div>
     </div>
 </body>
 </html>
