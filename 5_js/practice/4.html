@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #area{
+            width: 177px;
+            height: 21px;
+            border: 1px solid rgb(118, 118, 118), ;
+        }
+    </style>
+</head>
+<body>
+    <h1>실습문제 2</h1>
+    <div style="display: flex;">
+        <input type="number" id="num1">
+        <form>
+            <select name="dustkswk">
+                <option value="ejgkrl">+</option>
+                <option value="Qorl">-</option>
+                <option value="rhqgkrl">*</option>
+                <option value="sksnrl">/</option>
+                <option value="skajwl">%</option>
+            </select>
+        </form>
+        <input type="number" id="num2">
+        <input type="submit" value="=" onclick="test1()">
+        <div id="area"></div>
+    </div>
+    
+    
+    <script>
+        function test1(){
+            let num1 = document.getElementById('num1')
+            let num2 = document.getElementById('num2')
+            const area = document.getElementById('area')
+            let dus = document.getElementsByName('dustkswk')
+            let res = 0
+
+            console.log(num1.value)
+            
+            console.log(num2)
+            
+            console.log(typeof num1)
+
+            if(dus[0].value == 'ejgkrl'){
+                res = Number(num1.value) + Number(num2.value);
+                area.innerHTML = `${res}`;
+            }else if(dus[0].value == 'Qorl'){
+                res = Number(num1.value) - Number(num2.value);
+                area.innerHTML = `${res}`;
+            }else if(dus[0].value == 'rhqgkrl'){
+                res = Number(num1.value) * Number(num2.value);
+                area.innerHTML = `${res}`;
+            }else if(dus[0].value == 'sksnrl'){
+                if(Number(num2.value) == 0){
+                    area.style.background = 'red'
+                    area.innerHTML = "연산불가"
+                }else{
+                    res = Number(num1.value) / Number(num2.value);
+                    area.innerHTML = `${res}`;
+                }
+            }else if(dus[0].value == 'skajwl'){
+                if(Number(num2.value) == 0){
+                    area.style.background = 'red'
+                    area.innerHTML = "연산불가"
+                }else{
+                    res = Number(num1.value) % Number(num2.value);
+                    area.innerHTML = `${res}`;
+                }
+            }
+        }
+    </script>
+
+
+</body>
+</html>

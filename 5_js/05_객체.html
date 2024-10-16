@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            background-color: aquamarine;
+            border: 1px solid black;
+        }
+
+        .small{height: 200px;}
+
+        .big{width: 400px;}
+        
+    </style>
+</head>
+<body>
+    <h1>객체</h1>
+
+    <h3>*객체 선언 및 사용</h3>
+
+    <p>
+        객체는 중괄호 {}를 사용해서 생성하고 <br>
+        중괄호 안에 이 객체에서 필요한 속성들을 정의함,<br>
+        속성명 : 속성값(key : value)형태로 정의한다. <br>
+        속성값으로는 모든 자료형의 값을 담을 수 있다.
+    </p>
+
+    <pre>
+        변수={
+            속성명 : 속성값,
+            .....
+        }
+    </pre>
+
+    <button onclick="test1()">wer</button>
+    <div id="area1" class="area big"></div>
+
+    <script>
+        function test1(){
+            const arr = ["Dry Mango", 4000,"pickle",["mango", 'sugar']]
+            //자바스크립트 배열 = 자바의 컬렉션(ArrayList)과 유사
+            
+            const product = {
+                pName : "Dry Mango",
+                price : 4000,
+                kind : "pickle",
+                ing : ["mango", "sugar"]
+            }
+
+            //자바스크립트에서의 객체 == 자바 컬렉션(HashMap)
+            console.log(typeof product)
+            const area1 = document.getElementById("area");
+            area1.innerHTML += ("product : "+ product + "<br>")
+
+            //객체의 속성에 접근하는 방법
+            //1. 대괄호 이용 : 객체명["속성명"]
+
+            area1.innerHTML += "<b>객체명['속성명(key)']으로 접근하기</b></br>"
+            area1.innerHTML += "pName :  + product['pName'] + <br>"
+            area1.innerHTML += "price : ${product['price']}<br>"
+            area1.innerHTML += "ing : ${product['ing'[0]]}, ${product['ing'[0]]}" 
+        
+            //2.  .을 이용해서 접근 : 객체명['속성명']
+            area1.innerHTML += '<b>객체명.속성명(key)로 사용하기</b><br>'
+        
+        }
+    </script>
+
+    <h3>*객체 배열을 사용한 다량의 데이터 관리</h3>
+
+    <button onclick="test3()">실행</button>
+    <div id="area3" class="area small"></div>
+
+    <script>
+        function test3(){
+            const studentList = [
+                {name : "최지원", java : 85, db : 70, front : 50},
+                {name : "최지이", java : 80, db : 65, front : 80},
+                {name : "최지삼", java : 75, db : 80, front : 70},
+                {name : "최지사", java : 65, db : 75, front : 60},
+                {name : "최지오", java : 95, db : 90, front : 90},
+            ]
+
+            //학생 총점
+
+            for(let std of studentList){
+                console.log(std)
+            }
+
+            for(let std in studentList){
+                studentList[std].getSum = function(){
+                    return this.java + this.db + this.front;
+                }
+
+                studentList[std].getAvg = function(){
+                    return this.getSum() / 3;
+                }
+            }
+
+            const area3 = document.querySelector("#area3")
+            for(let student of studentList){
+                area3.innerHTML += "이름 : " + student.name + 
+                                    "<br>총점 : " + student.getSum() + 
+                                    "<br>평균 : " + student.getAvg() + "<br>"
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

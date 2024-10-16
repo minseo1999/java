@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영역관리태그</title>
+
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        블럭요소 : 한 줄 단위로 영역을 차지함
+            줄바꿈이 적용되어 이미 존재하는 태그의 다음줄에 다음 영역이 잡힘
+            (p, pre, "div", h...)
+        인라인 요소 : content(내용) 영역에 해당하는 부분만 영역을 차지하는 요소
+                     줄바꿈이 적용되지 않아 다음영역에 바로 옆으로 다음 영역이 잡힘
+                    (b, mark, s, img, "span")
+    -->
+    <h1>영역관련태그</h1>
+    <h2>div / span : 줄바꿈 적용</h2>
+
+    <h3>div태그</h3>
+    <p>div태그는 블럭요소</p>
+    <div style="background: red;">첫 영역</div>
+    <div style="background: orange;">2 영역</div>
+    <div style="background: blue;">3 영역</div>
+
+    <h3>spqn태그</h3>
+    <p>span태그는 인라인요소</p>
+    <span style="background: red;">첫 영역</div>
+    <span style="background: orange;">2 영역</div>
+    <span style="background: blue;">3 영역</div>
+    <!--인라인요소는 거의 다 크기 지정 안됨-->
+
+    <h2>div / span : 영역 지정 방식</h2>
+    <h3>div : 사각형 박스로 영역 지정</h3>
+    <div style="height: auto;">
+        실제 들롱은 ‘세상에서 가장 잘생긴 남자’라는 칭호를 데뷔할 때부터 사망할 때까지 들으며 살았다. 가난한 집안 출신이었던 들롱은 배우가 되기 전, 빵집 앞에서 어슬렁거리면 젊은 여성 직원이 빵을 가져다 주기도 했고, 남루한 차림으로 부티크 앞에 있으면 직원이 알아서 옷을 가져다주는 등 그의 미모는 수많은 여성의 흠모를 샀다.
+    </div>
+    <h3>span : 문장 단위로 영역 지정</h3>
+    <span>
+        실제 들롱은 ‘세상에서 가장 잘생긴 남자’라는 칭호를 데뷔할 때부터 사망할 때까지 들으며 살았다. 가난한 집안 출신이었던 들롱은 배우가 되기 전, 빵집 앞에서 어슬렁거리면 젊은 여성 직원이 빵을 가져다 주기도 했고, 남루한 차림으로 부티크 앞에 있으면 직원이 알아서 옷을 가져다주는 등 그의 미모는 수많은 여성의 흠모를 샀다.
+    </span>
+
+    <br>
+
+    <h1>iframe</h1>
+    <p>
+        웹 문서 안에 다른 웹페이지를 추가하는 태그(인라인 요소)
+    </p>
+
+    <iframe src="04_이미지 및 멀티미디어 태그.html" width="600" height="800"></iframe>
+    <iframe src="https://newtoki350.com/webtoon/40352358?page=2&toon=%EC%9D%BC%EB%B0%98%EC%9B%B9%ED%88%B0" frameborder="0"></iframe>
+</body>
+</html>

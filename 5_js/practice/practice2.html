@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            background-color: darksalmon;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML 태그에 접근 테스트</h1>
+    <p>
+        단, 구매자는 태그이름, 상품명은 아이디, 구매가격은 name값 접근
+    </p>
+
+    구매자 : <input type="text" name="rn" placeholder="구매자 이름을 입력하세요.">
+    상품명 : <input type="text" id="product" name="mm" placeholder="상품명을 입력하세요.">
+    가격 : <input type="number" name="price" placeholder="가격을 입력하세요.">
+
+    <button onclick="printInfo()">입력값 출력하기</button>
+
+    <br><br><br>
+    <div id="area1" class="area" style="background-color: bisque;"></div>
+
+    <script>
+        function printInfo(){
+
+            const name = document.getElementsByTagName("input")[0].value;
+            const prod = document.getElementById("product").value;
+            const price = document.getElementsByName("price")[0].value;
+
+           const str = `구매자 : ${name}<br>상품명 : ${prod} <br>가격 : ${price}`
+           document.querySelector("#area1").innerHTML = str;
+        }
+    </script>
+</body>
+</html>

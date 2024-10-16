@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>window 객체</h1>
+
+    <p>
+        window 객체는 자바스크립트 최상위 객체이며 bom,dom으로 나뉨 <br>
+        - BOM (Brower Object Model) : location(주소관리창), screen(장비관련), navigator(브라우저 관련) <br>
+        - DOM (Document Objct Model) : document 객체
+    </p>
+
+    <h4> - [window].open(["url"],"특성")</h4>
+    <button onclick="test1()">naver</button>
+    <script>
+        function test1(){
+            // window.open(); 새 창 열기
+            // window.open(첫번째, 두번째, 세번째);
+            //첫번째 : 새 창에서 열고자 하는 url 주소
+            window.open("https://www.naver.com","https://www.naver.com")
+            
+            //두번째 : 창이름, 창이름이 같게 이미 열려있을 경우 새 창이 열리지 않고 없을 경우만 새로 염
+            //세번째 : 너비, 높이, 주소창여부, 툴바여부...
+            /**
+             * 창의 특성
+             * width : 너비
+             * height : 높이 
+             * 
+             * => yes | no 
+             * resizeable : 창의 크기조절 가능여부
+             * location : 주소창
+             * menubar : 메뉴바
+             * scrollbars : 스크롤바
+             * status : 상태표시줄
+             * toolbar : 도구모음
+             */
+
+            window.open("https://www.naver.com","test","width=500 height=500")
+        }
+    </script>
+
+
+    <hr>
+
+    <h3>window 객체의 timer 관련 메소드</h3>
+    <h4>window.setTimeOut(함수, 시간ms) -> 일정 시간 후 함수 한번 실행 / 비동기 코드 </h4>
+
+    <button onclick="test2()">run</button>
+    <script>
+        function test2(){
+            // const myWin = window.open();
+            // myWin.alert("zzzzzzzzzzzzzzzzzzzzzzzzzzz")
+
+            // setTimeout(function(){
+            //     myWin.close();
+            // },3000)
+
+            console.log("처음로딩 -> 화면표시")
+
+            console.log("서버에 데이터 요청")
+            setTimeout(function(){
+                console.log("서버데이터 도착")
+                console.log("서버데이터 화면 구성")
+            },3000)
+            console.log("데이터 없는 화면구성")
+        }
+    </script>
+
+    <h4>window.setInterval(함수, 시간ms)</h4>
+    <button onclick="test3()">Run</button>
+    <div id="area1" class="area"></div>
+
+    <script>
+        function test3(){
+            const area1 = document.getElementById("area1")
+            //1초마다 카운트값 1씩 증가 -> 스탑워치
+
+            let count = 0;
+
+            setInterval(() => {
+                count++;
+                area1.innerHTML = new Date();
+            },1000)
+
+            console.log("after")
+        }
+
+        function getNowTimeHHMMSS(){
+            const now = new Date();
+
+            let hour = now.getHours();
+            let min = now.getMinutes();
+            let sec = now.getSeconds();
+
+            const str = hour + " : " + min + " : " + sec;
+            return str;
+        }
+    </script>
+    <br>
+    <hr>
+
+    <h1>BOM(Browser Object Model)</h1>
+
+    <h3>location 객체</h3>
+    <p>
+        브라우저 주소창과 관련된 객체
+    </p>
+
+    <button onclick="console.log(location)">Run test</button>
+
+    <a href="https://www.naver.com">Naver</a>
+
+    <button onclick="location.assign('https://www.google.com')">gg</button>
+    <button onclick="location.replace('https://www.google.com')">gg</button>
+    <!--replace는 뒤로가기를 사용할 수 없도록 ip와 포트이외의 경로 삭제-->
+    <button onclick="location.href = 'https://www.naver.com'">go Nvaer</button>
+    <button onclick="location.reload()">F5</button>
+
+    <br><br><br><br>
+
+    <h3>screen 객체</h3>
+    <button onclick="console.log(screen)">screen</button>
+
+    <h3>navigator 객체</h3>
+    <button onclick="console.log(navigator)">navigator</button>
+
+
+    <h3>history 객체</h3>
+    <button onclick="console.log(history)">history</button>
+
+    <br><hr>
+
+    <h1>DOM 구성하기</h1>
+    <p>
+        HTML에 있는 각각의 요소들을 노드(Node)라고 함<br>
+        > 요소노드(Element Node) : 태그 그 자체만을 의미<br>
+        > 텍스트노드(Text Node) : 태그 내에 기록되는 내용 의미<br><br>
+    </p>
+
+    <button onclick="test4()">test4 element run</button>
+
+    <div id="area2"></div>
+
+    <script>
+        function test4(){
+            const area2 = document.querySelector("#area2");
+            // area2.innerHTML = "Hello World";
+            // 동적으로 요소노드를 만드는 방법1 "문자열"
+            area2.innerHTML = "<h2>HelloWorld</h2>";
+
+            //동적으로 요소 노드를 만드는 방법2 document에서 제공하는 메소드 사용
+            let h3El = document.createElement('h3');
+
+            h3El.innerText = "hello";
+
+            area2.appendChild(h3El);
+        }
+    </script>
+
+    <br><br><br><br>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃관련스타일2</title>
+    <style>
+        .ps{border: 1px solid black;}
+        .outer{
+            position: relative;
+            border: 1px solid green;
+        }
+
+        #p1{
+            width: 300px;
+            height: 300px;
+            background-color: turquoise;
+        }
+
+        #p2{
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            /*position : relative; 로 세팅된 부모 요소로부터 위쪽에서 50, 왼쪽에서 50 만큼 떨어진 곳에 위치*/
+        }
+
+        #p3{
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+
+        #p4{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .vt{
+            width: 100px;
+            height: 100px;
+        }
+
+        .ft{
+            border: 1px solid black;
+            width: 70px;
+            height: 30ps;
+            float: leftA;
+        }
+    </style>
+</head>
+<body>
+    <h1>배치관련 스타일</h1>
+    <h3>position : 상대위치(relative)와 절대위치(absolute)</h3>
+
+    <div class="outer">
+        <div class="ps" id="p1">1wktlr</div>
+        <div class="ps" id="p2">2wktlr</div>
+        <div class="ps" id="p3">3wktlr</div>
+    </div>
+
+    <h3>position : 고정위치(fixed)</h3>
+    <div class="ps" id="p4">4wktlr</div>
+
+    <hr>
+    <h3>visivility : 특정 요소를 보이거나 보이지 않게하는 특성</h3>
+    <div class="vt" style="background-color: aquamarine; opacity: 0;">1duddjr</div>
+    <div class="vt" style="background-color: tomato; visibility: hidden;">2duddjr</div>
+    <div class="vt" style="background-color: yellow; display: none;">3duddjr</div>
+
+    <hr>
+
+    <h3>float</h3>
+    <p>
+        페이지 내의 요소들을 띄워서 화면으로부터 왼쪽 또는 오른쪽으로 배치하는 속성
+    </p>
+
+    <div class="ft">1</div>
+    <div class="ft">2</div>
+    <div class="ft">3</div>
+    <div class="ft">4</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
