@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../../../07_JSP/jspProject"
+		},
+		{
+			"path": "../../../../../../../semiproject/KHSemiProject"
+		},
+		{
+			"path": "../../../../../../../08_myBartis"
+		},
+		{
+			"path": "../../../../../../spring"
+		},
+		{
+			"path": "../../../../../../../05_JavaScript"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "elAction"
+	}
+}

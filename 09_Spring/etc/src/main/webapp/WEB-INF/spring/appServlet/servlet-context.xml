@@ -3,9 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -23,22 +25,6 @@
 	
 	<context:component-scan base-package="com.kh.etc" />
 	
-	<aop:aspect
-	
-	<!-- 
-		*사용자가 어떤 URL로 요청시 해당 문서가 읽어진다고 생각하면 된다.
-	
-		handlerMapping을 통해서 URL요청시 어떤 Controller를 구동시킬지 찾아야함 -> 요청값에 적합한 Controller실행
-		
-		1. 요청될때마다 실행될  Controller 클래스들을 been으로 저장
-		<bean:bean class="com.kh.spring.member.controller.MemberController" id="loginController" />
-		
-		2. 어떤 URL로 요청시 Controller를 구동시킬지 맵핑(handlerMapping)을 시켜줘야 한다
-		<beans: beans class="org.springFramework.web.servlet.handler/SimpleHandlerMApping">
-			<bean:property name="mapping">
-				<beans: prop key="login.me">loginController</beans:prop>
-			</bean:property>
-		</beans:bean>
-	 -->
+	<aop:aspectj-autoproxy />
 	
 </beans:beans>
